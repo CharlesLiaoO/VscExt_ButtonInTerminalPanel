@@ -1,0 +1,108 @@
+{
+  "name": "button-in-terminal-panel",
+  "displayName": "Button in Terminal Panel",
+  "description": "Add buttons (tasks/build and launch/debug) to the terminal panel title bar",
+  "version": "0.0.1",
+  "publisher": "CharlesLeow",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/CharlesLiaoO/VscExt_ButtonInTerminalPanel.git"
+  },
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "button-in-terminal-panel.button0",
+        "title": "Run Tasks",
+        "category": "Button in Terminal Panel",
+        "icon": "$(debug-line-by-line)"
+      },
+      {
+        "command": "button-in-terminal-panel.button1",
+        "title": "Configure Default Build Task",
+        "category": "Button in Terminal Panel",
+        "icon": "$(list-selection)"
+      },
+      {
+        "command": "button-in-terminal-panel.button2",
+        "title": "Run Build Task",
+        "category": "Button in Terminal Panel",
+        "icon": "$(tools)",
+        "❓❓comment": "$(build) icon issue: line and background color seems same."
+      },
+      {
+        "command": "button-in-terminal-panel.button3",
+        "title": "Select and Start Debugging",
+        "category": "Button in Terminal Panel",
+        "icon": "$(debug-console)"
+      },
+      {
+        "command": "button-in-terminal-panel.button4",
+        "title": "Start Debugging",
+        "category": "Button in Terminal Panel",
+        "icon": "$(debug-alt)"
+      },
+      {
+        "command": "button-in-terminal-panel.button5",
+        "title": "Start Without Debugging",
+        "category": "Button in Terminal Panel",
+        "icon": "$(run)"
+      }
+    ],
+    "menus": {
+      "view/title": [
+        {
+          "command": "button-in-terminal-panel.button0",
+          "when": "view == terminal",
+          "group": "navigation@-6"
+        },
+        {
+          "command": "button-in-terminal-panel.button1",
+          "when": "view == terminal",
+          "group": "navigation@-5"
+        },
+        {
+          "command": "button-in-terminal-panel.button2",
+          "when": "view == terminal",
+          "group": "navigation@-4"
+        },
+        {
+          "command": "button-in-terminal-panel.button3",
+          "when": "view == terminal",
+          "group": "navigation@-3"
+        },
+        {
+          "command": "button-in-terminal-panel.button4",
+          "when": "view == terminal",
+          "group": "navigation@-2"
+        },
+        {
+          "command": "button-in-terminal-panel.button5",
+          "when": "view == terminal",
+          "group": "navigation@-1"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile",
+    "package": "vsce package --out button-in-terminal-panel-0.0.1.vsix"
+  },
+  "devDependencies": {
+    "@types/node": "^20.x",
+    "@types/vscode": "^1.80.0",
+    "@vscode/vsce": "^2.22.0",
+    "typescript": "^5.3.0"
+  }
+}
